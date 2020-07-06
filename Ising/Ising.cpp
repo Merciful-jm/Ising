@@ -126,7 +126,7 @@ int main (void)
 		cout << T << endl;
 		for (int k = 0; k < TotalTime; k++)
 		{
-			MonteCarloSweep(Spins, Energy, Magnetization, magnet2, energy2, T);
+			MonteCarloSweep(Spins, Energy, Magnetization, magnet2, energy2, magnet4, T);
 			if (k >= RelaxationTime)
 			{
 				if ((k % 10) == 0)
