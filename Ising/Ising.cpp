@@ -45,7 +45,7 @@ int main (void)
 	double sum_e = 0;
 	double sum_e2 = 0;
 	double point_magnetization = 0;
-	double Binder;
+	//double Binder;
 	double magnet4, magnet4_perSpin;
 	double magnet2, magnet2_perSpin;
 	double energy2, energy2_perSpin;
@@ -87,7 +87,7 @@ int main (void)
 			cout << T << endl;
 			for (int k = 0; k < TotalTime; k++)
 			{
-				MonteCarloSweep(Spins, Energy, Magnetization, magnet2, energy2, T);
+				MonteCarloSweep(Spins, Energy, Magnetization, magnet2, energy2, magnet4, T);
 				if (k >= RelaxationTime)
 				{
 					if ((k % 10) == 0)
@@ -101,11 +101,12 @@ int main (void)
 						sum_m2 = sum_m2 + magnet2_perSpin;
 						energy2_perSpin = energy2 / (double(L) * L * L * L);
 						sum_e2 = sum_e2 + energy2_perSpin;
-
+						magnet4_perSpin = magnet4 / (double(L) * L * L * L * L * L * L * L);
+						sum_m4 = sum_m4 + magnet4_perSpin;
 					}
 				}
 			}
-			file0 << T << "\t" << setw(30) << (sum_e / 10000.0) << "\t" << setw(30) << (sum_e2 / 10000.0) << "\t" << setw(30) << (sum_m / 10000.0) << "\t " << setw(30) << (sum_m2 / 10000.0) << "\t ";
+			file0 << T << "\t" << setw(30) << (sum_e / 10000.0) << "\t" << setw(30) << (sum_e2 / 10000.0) << "\t" << setw(30) << (sum_m / 10000.0) << "\t " << setw(30) << (sum_m2 / 10000.0) << "\t " << setw(30) << (sum_m4 / 10000.0) << "\t ";
 
 			//		file0 << T << "\t" << setw(30) <<  Binder*3/2.0 << "\t" << setw(30) << (sum_m / 10000.0) << "\t"<< setw(30) << (sum_m2 / 10000.0) << "\t "<< setw(30) << (sum_m4 / 10000.0) << "\t ";
 			file0 << endl;
@@ -139,12 +140,12 @@ int main (void)
 					sum_m2 = sum_m2 + magnet2_perSpin;
 					energy2_perSpin = energy2 / (double(L) * L * L * L);
 					sum_e2 = sum_e2 + energy2_perSpin;
-
+					magnet4_perSpin = magnet4 / (double(L) * L * L * L * L * L * L * L);
+					sum_m4 = sum_m4 + magnet4_perSpin;
 				}
 			}
 		}
-		file0 << T << "\t" << setw(30) << (sum_e / 10000.0) << "\t" << setw(30) << (sum_e2 / 10000.0) << "\t" << setw(30) << (sum_m / 10000.0) << "\t " << setw(30) << (sum_m2 / 10000.0) << "\t ";
-
+		file0 << T << "\t" << setw(30) << (sum_e / 10000.0) << "\t" << setw(30) << (sum_e2 / 10000.0) << "\t" << setw(30) << (sum_m / 10000.0) << "\t " << setw(30) << (sum_m2 / 10000.0) << "\t " << setw(30) << (sum_m4 / 10000.0) << "\t ";
 		//		file0 << T << "\t" << setw(30) <<  Binder*3/2.0 << "\t" << setw(30) << (sum_m / 10000.0) << "\t"<< setw(30) << (sum_m2 / 10000.0) << "\t "<< setw(30) << (sum_m4 / 10000.0) << "\t ";
 		file0 << endl;
 

@@ -117,7 +117,7 @@ void MonteCarloSweep0(int Spins[L][L], double& Energy, double& Magnetzation)
 
 
 
-void MonteCarloSweep(int Spins[L][L], double& Energy, double& Magnetzation, double& magnet2, double& energy2, double& T)
+void MonteCarloSweep(int Spins[L][L], double& Energy, double& Magnetzation, double& magnet2, double& energy2, double& magnet4, double& T)
 {
 
 	double Energy_Flip;
@@ -134,7 +134,7 @@ void MonteCarloSweep(int Spins[L][L], double& Energy, double& Magnetzation, doub
 				Energy = Energy + Energy_Flip;
 				Magnetzation = Magnetzation + 2.0 * Spins[i][j];
 				magnet2 = (Magnetzation * Magnetzation);
-				//magnet4 = (Magnetzation * Magnetzation * Magnetzation * Magnetzation);
+				magnet4 = (Magnetzation * Magnetzation * Magnetzation * Magnetzation);
 				energy2 = (Energy * Energy);
 			}
 			else
@@ -147,7 +147,7 @@ void MonteCarloSweep(int Spins[L][L], double& Energy, double& Magnetzation, doub
 					Energy = Energy + Energy_Flip;
 					Magnetzation = Magnetzation + 2.0 * Spins[i][j];
 					magnet2 = (Magnetzation * Magnetzation);
-					//magnet4 = (Magnetzation * Magnetzation * Magnetzation * Magnetzation);
+					magnet4 = (Magnetzation * Magnetzation * Magnetzation * Magnetzation);
 					energy2 = (Energy * Energy);
 				}
 			}

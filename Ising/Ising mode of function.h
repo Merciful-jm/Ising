@@ -28,7 +28,7 @@ double Magnetization_total(int Spins[L][L]);
 
 double EnergyFlip(int i, int j, int Spins[L][L]);
 
-void MonteCarloSweep(int Spins[L][L], double& Energy, double& Magnetzation, double& magnet4, double& magnet2, double& T);
+void MonteCarloSweep(int Spins[L][L], double& Energy, double& Magnetzation, double& magnet2, double& energy2, double& magnet4, double& T);
 
 void MonteCarloSweep0(int Spins[L][L], double& Energy, double& Magnetzation);
 
