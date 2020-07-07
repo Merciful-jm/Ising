@@ -58,7 +58,7 @@ int main (void)
 	
 
 	Magnetization = Magnetization_total(Spins);
-    file0.open("L_8Plus_Ising_uniformT0-5_0.05_2-3_0.01.txt");
+    file0.open("L_32Plus_Ising_uniformT0-5_0.05_2-3_0.01.txt");
 	file0 << "temperature \t <E> \t <E^2> \t <m> \t <m^2>" << endl;
 	//file0 << "## Monte Carlo Simulation for 2D Ising Model with Periodic Boundary conditions" << endl;
 	//file0 << "## Algorithm : Metropolis Algorithm" << endl;
