@@ -1,5 +1,4 @@
-﻿ //
-#include <iostream>
+﻿#include <iostream>
 #include<cmath>
 #include <iomanip>
 #include<fstream>
@@ -9,6 +8,7 @@
 #include <random>
 #include<stdlib.h>
 #include<time.h>
+#include<ctime>
 //#include<thread>
 
 
@@ -18,7 +18,7 @@ using namespace std;
 double randomofjm()
 {	
 	double r;
-	static default_random_engine e;
+	static default_random_engine e(time(0));// it seems has a very different random!
 	static uniform_real_distribution<double> u(0, 1);
 	r = u(e);
 	return  r;
@@ -58,7 +58,7 @@ int main (void)
 	
 
 	Magnetization = Magnetization_total(Spins);
-    file0.open("L_64Plus_Ising_uniformT0-5_0.05_2-3_0.01.txt");
+    file0.open("L_8Plus7.10_Ising_uniformT0-5_0.05_2-3_0.01.txt");
 	file0 << "temperature \t <E> \t <E^2> \t <m> \t <m^2>" << endl;
 	//file0 << "## Monte Carlo Simulation for 2D Ising Model with Periodic Boundary conditions" << endl;
 	//file0 << "## Algorithm : Metropolis Algorithm" << endl;
