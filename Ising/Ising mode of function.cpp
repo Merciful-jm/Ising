@@ -10,7 +10,6 @@ void Initialization( int InitialSpin,int Spins[L][L])
 	{
 		for (int j = 0; j < L; j++)
 		{
-			//Spins[i][j] = InitialSpin;
 			if (randomofjm() < 0.5)
 			{
 				Spins[i][j] = InitialSpin;
@@ -19,7 +18,6 @@ void Initialization( int InitialSpin,int Spins[L][L])
 			{
 				Spins[i][j] = -InitialSpin;
 			}
-			//std::cout << "Spins" << i << "\t" << j << "AS" << Spins[i][j] << "\n";
 		}
 	}
 }
