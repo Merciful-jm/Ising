@@ -10,7 +10,16 @@ void Initialization( int InitialSpin,int Spins[L][L])
 	{
 		for (int j = 0; j < L; j++)
 		{
-			Spins[i][j] = InitialSpin;
+			//Spins[i][j] = InitialSpin;
+			if (randomofjm() < 0.5)
+			{
+				Spins[i][j] = InitialSpin;
+			}
+			else
+			{
+				Spins[i][j] = -InitialSpin;
+			}
+			//std::cout << "Spins" << i << "\t" << j << "AS" << Spins[i][j] << "\n";
 		}
 	}
 }
@@ -18,6 +27,7 @@ void Initialization( int InitialSpin,int Spins[L][L])
 double Hamiltonian_local(int i, int j, int Spins[L][L])
 {
 	int m, n, p, q;
+	double hhh = 0.0;
 	if (i == 0)
 	{
 		m = L - 1;
@@ -30,12 +40,12 @@ double Hamiltonian_local(int i, int j, int Spins[L][L])
 	}
 	else
 	{
-		m = i - 1;
-		n = i + 1;
+		m = i - 1;//normaly
+		n = i + 1;//normaly
 	}
 	if (j==0)
 	{
-		p = j - 1;
+		p = L - 1;/////////Finally find it!
 		q = 1;
 	}
 	else if (j==L-1)
@@ -45,10 +55,11 @@ double Hamiltonian_local(int i, int j, int Spins[L][L])
 	}
 	else
 	{
-		p = j - 1;
-		q = j + 1;
+		p = j - 1;//normaly
+		q = j + 1;//normaly
 	}
-	return  -Spins[i][j] * (J * (Spins[m][j] * 1.0 + Spins[n][j] + Spins[i][p] + Spins[i][q])  + mu * H);
+	hhh=-Spins[i][j] * (J * (Spins[m][j]  + Spins[n][j] + Spins[i][p] + Spins[i][q]));
+	return hhh; //cancled the "+ mu * H" term
 }
 
 double Energy_total(int Spins[L][L])
@@ -84,36 +95,36 @@ double EnergyFlip(int i, int j, int Spins[L][L])
 	return E2 - E1;
 }
 
-void MonteCarloSweep0(int Spins[L][L], double& Energy, double& Magnetzation)
-{
-	double Energy_Flip;
-	double BoltzmannFactor;
-	double RandomNum;
-	for (int i = 0; i < L; i++)
-	{
-		for (int j = 0; j < L; j++)
-		{
-			Energy_Flip = EnergyFlip(i, j, Spins);
-			if (Energy_Flip <= 0)
-			{
-				Spins[i][j] = -Spins[i][j];
-				Energy = Energy + Energy_Flip;
-				Magnetzation = Magnetzation + 2.0 * Spins[i][j];	
-			}
-			else
-			{
-				BoltzmannFactor = exp(-Energy_Flip / (k_B * 4.0));
-				RandomNum = randomofjm();
-				if (RandomNum <= BoltzmannFactor)
-				{
-					Spins[i][j] = -Spins[i][j];
-					Energy = Energy + Energy_Flip;
-					Magnetzation = Magnetzation + 2.0 * Spins[i][j];					
-				}
-			}
-		}
-	}
-}
+//void MonteCarloSweep0(int Spins[L][L], double& Energy, double& Magnetzation)
+//{
+//	double Energy_Flip;
+//	double BoltzmannFactor;
+//	double RandomNum;
+//	for (int i = 0; i < L; i++)
+//	{
+//		for (int j = 0; j < L; j++)
+//		{
+//			Energy_Flip = EnergyFlip(i, j, Spins);
+//			if (Energy_Flip <= 0)
+//			{
+//				Spins[i][j] = -Spins[i][j];
+//				Energy = Energy + Energy_Flip;
+//				Magnetzation = Magnetzation + 2.0 * Spins[i][j];	
+//			}
+//			else
+//			{
+//				BoltzmannFactor = exp(-Energy_Flip / (k_B * 4.0));
+//				RandomNum = randomofjm();
+//				if (RandomNum <= BoltzmannFactor)
+//				{
+//					Spins[i][j] = -Spins[i][j];
+//					Energy = Energy + Energy_Flip;
+//					Magnetzation = Magnetzation + 2.0 * Spins[i][j];					
+//				}
+//			}
+//		}
+//	}
+//}
 
 
 
