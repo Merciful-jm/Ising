@@ -56,7 +56,7 @@ double Hamiltonian_local(int i, int j, int Spins[L][L])
 		p = j - 1;//normaly
 		q = j + 1;//normaly
 	}
-	hhh=-Spins[i][j] * (J * (Spins[m][j]  + Spins[n][j] + Spins[i][p] + Spins[i][q]));
+	hhh=-Spins[i][j] * (J * (Spins[m][j]  + Spins[n][j] + Spins[i][p] + Spins[i][q]) + mu * H);
 	return hhh; //cancled the "+ mu * H" term
 }
 
