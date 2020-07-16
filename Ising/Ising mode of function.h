@@ -9,7 +9,7 @@ const double J = 1.0;
 const double mu = 1.0;
 const double k_B = 1.0;
 const int L = 8;
-const int RelaxationTime = 20000;
+const int RelaxationTime = 40000;
 const int TotalTime = (100000 + RelaxationTime);
 //double T = 4;
 //default_random_engine e;//生成无符号的随机整数

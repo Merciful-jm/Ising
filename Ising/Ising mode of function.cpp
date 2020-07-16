@@ -10,14 +10,15 @@ void Initialization( int InitialSpin,int Spins[L][L])
 	{
 		for (int j = 0; j < L; j++)
 		{
-			if (randomofjm() < 0.5)
+			Spins[i][j] = InitialSpin;
+			/*if (randomofjm() < 0.5)
 			{
 				Spins[i][j] = InitialSpin;
 			}
 			else
 			{
 				Spins[i][j] = -InitialSpin;
-			}
+			}*/
 		}
 	}
 }

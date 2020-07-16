@@ -349,3 +349,4 @@ MigrationBackup/
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
 /Ising/L_8Ising_uniformT0-5_0.05_2-3_0.01.txt
+*.txt

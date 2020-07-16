@@ -9,10 +9,7 @@
 #include<stdlib.h>
 #include<time.h>
 #include<ctime>
-//#include<thread>
-
 using namespace std;
-
 double randomofjm()
 {	
 	double r;
@@ -20,14 +17,6 @@ double randomofjm()
 	static uniform_real_distribution<double> u(0, 1);
 	r = u(e);
 	return  r;
-	//static double a;
-	//static double b;
-	//static double r;
-	//static random_device rd;
-	//a = rd();
-	//b = rd.max();
-	//r = (a / b);
-	//return r;
 }
 
 
@@ -53,9 +42,9 @@ int main (void)
 	double s = 0;
 	Energy = 0;
 
-	Magnetization = Magnetization_total(Spins);
+	//Magnetization = Magnetization_total(Spins);
     file0.open("NEW_L-8_7.16_Ising.txt");
-	file0 << "temperature \t <E> \t <E^2> \t <m> \t <m^2>" << endl;
+	file0 << "temperature \t <E> \t <E^2> \t <m> \t <m^2> \t <m^4>" << endl;
 	//file0 << "## Monte Carlo Simulation for 2D Ising Model with Periodic Boundary conditions" << endl;
 	//file0 << "## Algorithm : Metropolis Algorithm" << endl;
 	//file0 << "## Random Number type: 	uniform_real_distribution<double> u(0, 1);" << endl;
@@ -86,7 +75,7 @@ int main (void)
 				MonteCarloSweep(Spins, Energy, Magnetization, magnet2, energy2, magnet4, T);
 				if (k >= RelaxationTime)
 				{	
-					if ((k % 10) == 0)
+					if ((k % 100) == 0)
 					{
 						Magnetization_perSpin = Magnetization / (double(L) * L);
 						//Magnetization_perSpin = fabs(Magnetization_perSpin);//no need to have a absolute value.
@@ -102,7 +91,7 @@ int main (void)
 					}
 				}
 			}
-			file0 << T << "\t" << setw(30) << (sum_e / 10000.0) << "\t" << setw(30) << (sum_e2 / 10000.0) << "\t" << setw(30) << (sum_m / 10000.0) << "\t " << setw(30) << (sum_m2 / 10000.0) << "\t " << setw(30) << (sum_m4 / 10000.0) << "\t ";
+			file0 << T << "\t" << setw(30) << (sum_e / 1000.0) << "\t" << setw(30) << (sum_e2 / 1000.0) << "\t" << setw(30) << (sum_m / 1000.0) << "\t " << setw(30) << (sum_m2 / 1000.0) << "\t " << setw(30) << (sum_m4 / 1000.0) << "\t ";
 			file0 << endl;
 
 		}
@@ -139,7 +128,8 @@ int main (void)
 				}
 			}
 		}
-		file0 << T << "\t" << setw(30) << (sum_e / 10000.0) << "\t" << setw(30) << (sum_e2 / 10000.0) << "\t" << setw(30) << (sum_m / 10000.0) << "\t " << setw(30) << (sum_m2 / 10000.0) << "\t " << setw(30) << (sum_m4 / 10000.0) << "\t ";
+		file0 << T << "\t" << setw(30) << (sum_e / 1000.0) << "\t" << setw(30) << (sum_e2 / 1000.0) << "\t" << setw(30) << (sum_m / 1000.0) << "\t " << setw(30) << (sum_m2 / 1000.0) << "\t " << setw(30) << (sum_m4 / 1000.0) << "\t ";
+		//file0 << T << "\t" << setw(30) << (sum_e / 10000.0) << "\t" << setw(30) << (sum_e2 / 10000.0) << "\t" << setw(30) << (sum_m / 10000.0) << "\t " << setw(30) << (sum_m2 / 10000.0) << "\t " << setw(30) << (sum_m4 / 10000.0) << "\t ";
 		file0 << endl;
 		}
 
