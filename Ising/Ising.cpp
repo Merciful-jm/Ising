@@ -25,7 +25,6 @@ double randomofjm()
 
 int main (void)
 {
-	//double T;
 	double sum = 0;
 	double sum_m = 0;
 	double sum_m2 = 0;

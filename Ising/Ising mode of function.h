@@ -21,7 +21,6 @@ void Initialization(int InitialSpin, int Spins[L][L]);
 
 double Hamiltonian_local(int i, int j, int Spins[L][L]);
 
-
 double Energy_total(int Spins[L][L]);
 
 double Magnetization_total(int Spins[L][L]);
