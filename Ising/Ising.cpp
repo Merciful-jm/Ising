@@ -46,7 +46,7 @@ int main (void)
 	int Spins[L][L];
 	int InitialSpin = 1;
 	ofstream file0;
-    file0.open("NEW_L-64_7.17_Ising.txt");
+    file0.open("NEW_L-8_7.25_Ising.txt");
 	file0 << "temperature \t <E> \t <E^2> \t <m> \t <m^2> \t <m^4>" << endl;
 	//file0 << "## Monte Carlo Simulation for 2D Ising Model with Periodic Boundary conditions" << endl;
 	//file0 << "## Algorithm : Metropolis Algorithm" << endl;
