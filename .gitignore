@@ -351,3 +351,4 @@ MigrationBackup/
 /Ising/L_8Ising_uniformT0-5_0.05_2-3_0.01.txt
 *.txt
 Ising/Ising
+.DS_Store
