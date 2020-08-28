@@ -43,7 +43,7 @@ if __name__ == '__main__':
     field = np.full(shape, 0)
 
     # Temperature (in units of energy)
-    temperature = 4.0                   #取倒数
+    temperature = 4.0                   
     beta=1/temperature
     # Interaction (ferromagnetic if positive, antiferromagnetic if negative)
     interaction = 1

@@ -44,7 +44,7 @@ def bin_sweep(N_per_bin,beta,mag_sum,mag2_sum,energy1_sum,energy2_sum):
 
 
 if __name__ == '__main__':
-    L = 8
+    L = 4
     shape = (L, L)
     N = L*L
     moment = 1
@@ -53,7 +53,7 @@ if __name__ == '__main__':
     field = np.full(shape, 0)
 
     # Temperature (in units of energy)
-    # temperature = 0                   取倒数
+    # temperature = 0                   
 
     # Interaction (ferromagnetic if positive, antiferromagnetic if negative)
     interaction = 1
